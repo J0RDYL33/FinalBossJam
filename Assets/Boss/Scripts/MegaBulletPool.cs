@@ -2,23 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletPool : MonoBehaviour
+public class MegaBulletPool : MonoBehaviour
 {
-    public static BulletPool bulletPoolInstance;
+    public static MegaBulletPool megaBulletPoolInstance;
 
-    [SerializeField] private GameObject pooledBullet;
-    private bool notEnoughBulletsInPool = true;
 
+    [SerializeField]
+    private GameObject pooledBullet;
+    private bool notEnoughPooled = true;
     private List<GameObject> bullets;
 
     private void Awake()
     {
-        bulletPoolInstance = this;
+        // Set the instance reference
+        megaBulletPoolInstance = this;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
+        // Initialise new list of bullets
         bullets = new List<GameObject>();
     }
 
@@ -35,12 +37,12 @@ public class BulletPool : MonoBehaviour
             }
         }
 
-        if (notEnoughBulletsInPool)
+        if (notEnoughPooled)
         {
-            GameObject bul = Instantiate(pooledBullet);
-            bul.SetActive(false);
-            bullets.Add(bul);
-            return bul;
+            GameObject bullet = Instantiate(pooledBullet);
+            bullet.SetActive(false);
+            bullets.Add(bullet);
+            return bullet;
         }
 
         return null;
