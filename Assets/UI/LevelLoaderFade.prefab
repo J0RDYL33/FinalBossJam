@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 787658877192498677}
   - component: {fileID: 8197408995197931131}
   m_Layer: 0
-  m_Name: LevelLoader
+  m_Name: LevelLoaderFade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
                 doubleJump = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.S)) && canDash)
         {
             Debug.Log("Dash call");
             StartCoroutine(Dash());
@@ -91,7 +91,11 @@ public class PlayerMovement : MonoBehaviour
         isDashing = true;
         float originalGravity = myRb.gravityScale;
         myRb.gravityScale = 0f;
-        myRb.velocity = new Vector2(transform.localScale.x * dashingPower, transform.localScale.y * dashingPower);
+
+        if(Input.GetKey(KeyCode.S))
+            myRb.velocity = new Vector2(0, transform.localScale.y * (-dashingPower * 2.5f));
+        else
+            myRb.velocity = new Vector2(transform.localScale.x * dashingPower, transform.localScale.y * dashingPower);
         StartCoroutine(DashTrail());
         yield return new WaitForSeconds(dashingTime);
         myRb.gravityScale = originalGravity;
