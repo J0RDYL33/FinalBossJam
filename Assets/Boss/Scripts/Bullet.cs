@@ -5,11 +5,12 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private Vector2 moveDir;
-    private float speed = 3f;
+    public float speed = 5f;
+    public float deathTime = 5f;
 
     private void OnEnable()
     {
-        Invoke("Destroy", 3f);
+        Invoke("Destroy", deathTime);
     }
 
     // Update is called once per frame
