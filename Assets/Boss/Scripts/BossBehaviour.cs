@@ -21,10 +21,10 @@ public class BossBehaviour : MonoBehaviour
 
         switch (timer)
         {
-            case 900:
+            case 1000:
                 GetComponent<DanmakuSpawner>().RingFlare(playerPosition, transform.position, 24, 3);
                 break;
-            case 3500:
+            case 4500:
                 GetComponent<DanmakuSpawner>().RingFlare(playerPosition, transform.position, 24, 3);
                 break;
             default:
