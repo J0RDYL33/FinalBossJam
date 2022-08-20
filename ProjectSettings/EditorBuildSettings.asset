@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MidRoomPhase1 1.unity
     guid: 9d01b97db12fc104da8f11972544bffc
+  - enabled: 1
+    path: Assets/Scenes/EndPhase1.unity
+    guid: 1397e5be2ae3c644eb44aac51f3faa09
   m_configObjects: {}

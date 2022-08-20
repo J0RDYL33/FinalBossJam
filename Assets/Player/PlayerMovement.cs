@@ -4,20 +4,28 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public float health;
     public Vector2 speed = new Vector2(50, 50);
     public float jumpAmount = 10;
     public bool grounded;
     public bool doubleJump;
+    public GameObject healthbar;
+    public Animator deathAnim;
 
     private Rigidbody2D myRb;
     private GroundCheck myGC;
     private bool facingRight;
 
+    private float invulTimer = 0.5f;
     private bool canDash = true;
     private bool isDashing;
-    private float dashingPower = 7f;
+    private float dashingPower = 5f;
     private float dashingTime = 0.02f;
     private float dashingCooldown = 1f;
+    private Animator myAnim;
+    private SpriteRenderer mySR;
+    private BoxCollider2D myCol;
+    private CameraMover theCam;
 
     [SerializeField] private TrailRenderer tr;
 
@@ -26,6 +34,10 @@ public class PlayerMovement : MonoBehaviour
     {
         myRb = GetComponent<Rigidbody2D>();
         myGC = FindObjectOfType<GroundCheck>();
+        myAnim = GetComponent<Animator>();
+        mySR = GetComponent<SpriteRenderer>();
+        myCol = GetComponent<BoxCollider2D>();
+        theCam = FindObjectOfType<CameraMover>();
     }
 
     // Update is called once per frame
@@ -35,6 +47,9 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
+
+        if (invulTimer > 0)
+            invulTimer -= Time.deltaTime;
 
         float inputX = Input.GetAxis("Horizontal");
         float inputY = Input.GetAxis("Vertical");
@@ -53,18 +68,28 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
+        //Move player
         if (Input.GetKeyDown(KeyCode.A))
         {
             facingRight = false;
-            transform.localScale = new Vector3(-0.5f, 0.5f, 1);
+            transform.localScale = new Vector3(-1f, 1f, 1);
+
         }
         else if (Input.GetKeyDown(KeyCode.D))
         {
-            transform.localScale = new Vector3(0.5f, 0.5f, 1);
+            transform.localScale = new Vector3(1f, 1f, 1);
             facingRight = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && (grounded == true || doubleJump == true))
+        //Handle running animation
+        if (Input.GetKey(KeyCode.A))
+            myAnim.SetBool("Running", true);
+        else if (Input.GetKey(KeyCode.D))
+            myAnim.SetBool("Running", true);
+        else if (Input.GetKey(KeyCode.A) == false || Input.GetKey(KeyCode.D) == false)
+            myAnim.SetBool("Running", false);
+
+            if (Input.GetKeyDown(KeyCode.Space) && (grounded == true || doubleJump == true))
         {
             //myRb.AddForce(Vector2.up * jumpAmount, ForceMode2D.Impulse);
             //float jumpForce = Mathf.Sqrt(jumpAmount * -2 * (Physics2D.gravity.y * myRb.gravityScale));
@@ -82,6 +107,38 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Dash call");
             StartCoroutine(Dash());
         }
+    }
+
+    public void TakeDamage()
+    {
+        if (invulTimer <= 0)
+        {
+            theCam.StartScreenShake();
+            health--;
+            healthbar.transform.localScale = new Vector3(health, 1, 1);
+            StartCoroutine(FlashRed());
+            if (health <= 0)
+            {
+                myAnim.SetTrigger("Death");
+                StartCoroutine(Death());
+            }
+        }
+    }
+
+    IEnumerator FlashRed()
+    {
+        mySR.color = Color.red;
+        yield return new WaitForSeconds(.3f);
+        mySR.color = Color.white;
+    }
+
+    IEnumerator Death()
+    {
+        deathAnim.SetTrigger("Active");
+        myRb.bodyType = RigidbodyType2D.Static;
+        myCol.enabled = false;
+        yield return new WaitForSeconds(1.0f);
+        Destroy(this.gameObject);
     }
 
     private IEnumerator Dash()
@@ -106,8 +163,16 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator DashTrail()
     {
-        tr.material.color = new Color(1f, 0f, 0f);
+        tr.material.color = new Color(1f, 0.5998304f, 0.3160377f);
         yield return new WaitForSeconds(0.5f);
-        tr.material.color = new Color(1f, 1f, 1f);
+        tr.material.color = new Color(0.8588236f, 0.5411765f, 0.7098039f);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "enemy")
+        {
+            TakeDamage();
+        }
     }
 }

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3635997568460796309}
   m_Layer: 0
   m_Name: Cultist
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,7 +109,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 5
 --- !u!61 &3635997568460796305
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -169,6 +169,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnBullet: 0
+  dialog: {fileID: 0}
+  hasDialog: 0
+  health: 3
 --- !u!1 &3635997569583185172
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,6 +183,7 @@ GameObject:
   - component: {fileID: 3635997569583185195}
   - component: {fileID: 3635997569583185193}
   - component: {fileID: 3635997569583185194}
+  - component: {fileID: 978400450996051303}
   m_Layer: 0
   m_Name: AggroRange
   m_TagString: Untagged
@@ -231,3 +235,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myCultist: {fileID: 3635997568460796309}
+--- !u!50 &978400450996051303
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3635997569583185172}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
