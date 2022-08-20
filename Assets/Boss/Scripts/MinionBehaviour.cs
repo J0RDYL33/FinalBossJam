@@ -22,12 +22,12 @@ public class MinionBehaviour : MonoBehaviour
         switch (timer)
         {
             case 100:
-                GetComponent<DanmakuSpawner>().FireRing(playerPosition, transform.position, 17, 6);        
-                break;
-            case 2000:
-                GetComponent<DanmakuSpawner>().SpiralFlare(playerPosition, transform.position, 6, 20);
+                GetComponent<DanmakuSpawner>().FireRing(playerPosition, transform.position, 6, 3);        
                 break;
             case 4000:
+                GetComponent<DanmakuSpawner>().SpiralFlare(playerPosition, transform.position, 6, 3);
+                break;
+            case 8000:
                 timer = 0;
                 break;
             default:

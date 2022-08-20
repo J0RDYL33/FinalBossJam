@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 139061965482710546}
-  - component: {fileID: 139061965482710557}
   - component: {fileID: 139061965482710556}
+  - component: {fileID: 4322807265661153707}
   m_Layer: 0
   m_Name: Thrown Rock
-  m_TagString: Harmful
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,29 +27,13 @@ Transform:
   m_GameObject: {fileID: 139061965482710558}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 39.79, y: 39.79, z: 39.79}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 287756791714089167}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &139061965482710557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 139061965482710558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d01e171991679f44da1d3cd99ee10d4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetDest: {x: 0, y: 0}
-  playerPosOnSummon: {x: 0, y: 0}
-  movementSpeed: 0
-  _canMove: 0
 --- !u!58 &139061965482710556
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -60,12 +44,26 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.09
+--- !u!114 &4322807265661153707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139061965482710558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f060ca64e17744468d9ab56395b225f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPos: {x: 0, y: 0}
+  movementSpeed: 4
 --- !u!1 &5359721994855237918
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +168,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: d9f0a985efb875d4cb421c79b5096b0f, type: 3}
   m_Color: {r: 0.9528302, g: 0.66967785, b: 0.93918073, a: 1}
   m_FlipX: 0

@@ -46,7 +46,7 @@ public class DanmakuSpawner : MonoBehaviour
                 angle += angleStep;
             }
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
         }
     }
 
@@ -82,7 +82,7 @@ public class DanmakuSpawner : MonoBehaviour
             }
 
             angle += 10;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
         }
     }
 
@@ -96,7 +96,7 @@ public class DanmakuSpawner : MonoBehaviour
         float angleStep = 360 / bulCount;
         float angle = 0;
 
-        StartCoroutine(SpiralFlareCR(playerPos, spawnPos, 5, 8));
+        StartCoroutine(SpiralFlareCR(playerPos, spawnPos, 5, 6));
 
         for (int i = 0; i < bulWaves; i++)
         {
@@ -117,7 +117,7 @@ public class DanmakuSpawner : MonoBehaviour
                 angle += angleStep;
             }
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
         }
     }
 }
