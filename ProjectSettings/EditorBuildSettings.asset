@@ -6,12 +6,48 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: b33d9b50a6b059441850c7018e363d54
+  - enabled: 1
     path: Assets/Scenes/StartRoomPhase1.unity
     guid: 646e037afdde3da4b9b851b0121a776f
   - enabled: 1
-    path: Assets/Scenes/MidRoomPhase1 1.unity
+    path: Assets/Scenes/MidRoomPhase1.unity
     guid: 9d01b97db12fc104da8f11972544bffc
+  - enabled: 1
+    path: Assets/Boss/Boss 1st Phase.unity
+    guid: 900d1541e9f1db149bc3947ef066dce1
   - enabled: 1
     path: Assets/Scenes/EndPhase1.unity
     guid: 1397e5be2ae3c644eb44aac51f3faa09
+  - enabled: 1
+    path: Assets/Scenes/StartRoomPhase2.unity
+    guid: 420d7c11149b3b3459fc71d3ef2f86d9
+  - enabled: 1
+    path: Assets/Scenes/MidRoomPhase2.unity
+    guid: 840a890482c52a248a77cdee6283bb12
+  - enabled: 1
+    path: Assets/Boss/Boss 2nd Phase.unity
+    guid: d92c13a0a7886144889cbb3c27690795
+  - enabled: 1
+    path: Assets/Scenes/EndPhase2.unity
+    guid: 93241e6adc9d5df49965ac6d4a8a48b6
+  - enabled: 1
+    path: Assets/Scenes/StartRoomPhase3.unity
+    guid: 965c26762cb077145b56895847e621ba
+  - enabled: 1
+    path: Assets/Boss/Boss Final Phase.unity
+    guid: 4f61146fa5a4dac4392ef6c22e8afbf8
+  - enabled: 1
+    path: Assets/Scenes/EndPhase3.unity
+    guid: c4f9223122cc80b4f82bd8e8ab491f68
+  - enabled: 1
+    path: Assets/Scenes/StartRoomPhaseEND.unity
+    guid: d6cb43cd4041c364fa1031eed5a32bd5
+  - enabled: 1
+    path: Assets/Scenes/MidRoomPhaseEND.unity
+    guid: c2c0f42d14c56e74c8fa84523d5205a6
+  - enabled: 1
+    path: Assets/Scenes/EndPhaseEND.unity
+    guid: 7e747c6c55810d74d8bc33f49f99c20c
   m_configObjects: {}

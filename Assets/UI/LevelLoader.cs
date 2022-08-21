@@ -33,6 +33,11 @@ public class LevelLoader : MonoBehaviour
     {
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(levelIndex);
+        if(levelIndex != 15)
+            SceneManager.LoadScene(levelIndex);
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 }
