@@ -14,20 +14,20 @@ public class MinionBehaviour : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         // Update player's position
         playerPosition = player.transform.position;
 
         switch (timer)
         {
-            case 100:
-                GetComponent<DanmakuSpawner>().FireRing(playerPosition, transform.position, 6, 3);        
+            case 10:
+                GetComponent<DanmakuSpawner>().FireRing(playerPosition, transform.position, 6, 3);
                 break;
-            case 4000:
+            case 400:
                 GetComponent<DanmakuSpawner>().SpiralFlare(playerPosition, transform.position, 6, 3);
                 break;
-            case 8000:
+            case 800:
                 timer = 0;
                 break;
             default:
@@ -35,6 +35,11 @@ public class MinionBehaviour : MonoBehaviour
         }
 
         timer++;
+    }
+
+    private void Update()
+    {
+
     }
 
 }
