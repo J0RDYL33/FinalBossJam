@@ -18,26 +18,24 @@ public class BossBehaviourP3 : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        // Update player's position
-        playerPosition = player.transform.position;
 
         switch (timer)
         {
-            case 2000:
+            case 200:
                 GetComponent<DanmakuSpawner>().RingFlare(playerPosition, transform.position, 8, 4);
 
                 GameObject spawnedPillars = Instantiate(pillars, pillarSpawn, Quaternion.identity);
                 spawnedPillars.GetComponent<FloorPillars>().isActivated = true;
                 Debug.Log("Pillars instantiated");
                 break;
-            case 2500:
+            case 250:
                 GameObject spawnedRock = Instantiate(moonRock, new Vector2(0, 25), Quaternion.identity);
                 spawnedRock.GetComponent<MoonRock>().targetPos = playerPosition;
                 Debug.Log("Moon Rock instantiated");
                 break;
-            case 5000:
+            case 500:
                 spawnedPillars = Instantiate(pillars, pillarSpawn, Quaternion.identity);
                 spawnedPillars.GetComponent<FloorPillars>().isActivated = true;
                 Debug.Log("Pillars instantiated");
@@ -45,15 +43,15 @@ public class BossBehaviourP3 : MonoBehaviour
                 spawnedRock = Instantiate(moonRock, new Vector2(0, 25), Quaternion.identity);
                 spawnedRock.GetComponent<MoonRock>().targetPos = playerPosition;
                 Debug.Log("Moon Rock instantiated");
-                break;    
-            case 8000:
+                break;
+            case 800:
                 GetComponent<DanmakuSpawner>().RingFlare(playerPosition, transform.position, 6, 3);
 
                 spawnedRock = Instantiate(moonRock, new Vector2(0, 25), Quaternion.identity);
                 spawnedRock.GetComponent<MoonRock>().targetPos = playerPosition;
                 Debug.Log("Moon Rock instantiated");
                 break;
-            case 10000:
+            case 1000:
                 timer = 0;
                 break;
             default:
@@ -61,5 +59,13 @@ public class BossBehaviourP3 : MonoBehaviour
         }
 
         timer++;
+    }
+
+    private void Update()
+    {
+        // Update player's position
+        playerPosition = player.transform.position;
+
+
     }
 }

@@ -19,27 +19,26 @@ public class BossBehaviourP2 : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        // Update player's position
-        playerPosition = player.transform.position;
+
 
         // Phase 2 should be less dense with attacks
         switch (timer)
         {
-            case 2000:
+            case 200:
                 GetComponent<DanmakuSpawner>().RingFlare(playerPosition, transform.position, 6, 1);
 
                 //GameObject spawnedPillars = Instantiate(pillars, pillarSpawn, Quaternion.identity);
                 //spawnedPillars.GetComponent<FloorPillars>().isActivated = true;
                 //Debug.Log("Pillars instantiated");
                 break;
-            case 2500:
+            case 250:
                 GameObject spawnedRock = Instantiate(moonRock, new Vector2(0, 25), Quaternion.identity);
                 spawnedRock.GetComponent<MoonRock>().targetPos = playerPosition;
                 Debug.Log("Moon Rock instantiated");
                 break;
-            case 6000:
+            case 600:
                 GameObject spawnedPillars = Instantiate(pillars, pillarSpawn, Quaternion.identity);
                 spawnedPillars.GetComponent<FloorPillars>().isActivated = true;
                 Debug.Log("Pillars instantiated");
@@ -48,7 +47,7 @@ public class BossBehaviourP2 : MonoBehaviour
                 //spawnedRock.GetComponent<MoonRock>().targetPos = playerPosition;
                 //Debug.Log("Moon Rock instantiated");
                 break;
-            case 8500:
+            case 850:
                 int randSide = Random.Range(0, 51);
                 int randHeight = Random.Range(-5, 4);
 
@@ -63,14 +62,14 @@ public class BossBehaviourP2 : MonoBehaviour
                 }
 
                 break;
-            case 10500:
+            case 1050:
                 GetComponent<DanmakuSpawner>().RingFlare(playerPosition, transform.position, 6, 3);
 
                 spawnedRock = Instantiate(moonRock, new Vector2(0, 25), Quaternion.identity);
                 spawnedRock.GetComponent<MoonRock>().targetPos = playerPosition;
                 Debug.Log("Moon Rock instantiated");
                 break;
-            case 11000:
+            case 1100:
                 timer = 0;
                 break;
             default:
@@ -78,5 +77,13 @@ public class BossBehaviourP2 : MonoBehaviour
         }
 
         timer++;
+    }
+
+    private void Update()
+    {
+
+        // Update player's position
+        playerPosition = player.transform.position;
+
     }
 }
