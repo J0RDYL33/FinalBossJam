@@ -81,7 +81,7 @@ public class BossBehaviourP1 : MonoBehaviour
 
             case 600:
                 audioObject.PlaySound("bossBullet");
-                GetComponent<DanmakuSpawner>().FireRing(playerPosition, transform.position, 16, 2);
+                GetComponent<DanmakuSpawner>().FireRing(playerPosition, transform.position, 12, 2);
 
                 spawnedRock = Instantiate(moonRock, new Vector2(-30, 25), Quaternion.identity);
                 spawnedRock.GetComponent<MoonRock>().targetPos = playerPosition;
