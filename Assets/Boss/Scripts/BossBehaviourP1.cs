@@ -13,32 +13,49 @@ public class BossBehaviourP1 : MonoBehaviour
     private int timer;
     private Vector2 pillarSpawn = new Vector2(0, -25);
 
+    //JC
+    public GameObject healthbar;
+    public SpriteRenderer cloakSR;
+    public SpriteRenderer maskSR;
+    private LevelLoader loader;
+    private float invulTimer = 0.6f;
+    private float healthbarScale = 0.97f;
+    private float health = 100;
+    private AudioManager audioObject;
+
     private void Start()
     {
         //GetComponent<DanmakuSpawner>().FireRing();
         player = GameObject.FindGameObjectWithTag("Player");
+
+        //JC
+        loader = FindObjectOfType<LevelLoader>();
+        audioObject = FindObjectOfType<AudioManager>();
     }
 
-    private void Update()
+    //JC
+    private void FixedUpdate()
     {
-        // Update player's position
-        playerPosition = player.transform.position;
+        if (invulTimer >= 0)
+            invulTimer -= Time.deltaTime;
 
         // Phase 2 should be less dense with attacks
         switch (timer)
         {
-            case 200:
+            case 20:
+                audioObject.PlaySound("bossBullet");
                 GetComponent<DanmakuSpawner>().FireRing(playerPosition, transform.position, 12, 2);
                 break;
 
-            case 1000:
+            case 100:
 
                 GameObject spawnedRock = Instantiate(moonRock, new Vector2(30, 25), Quaternion.identity);
                 spawnedRock.GetComponent<MoonRock>().targetPos = playerPosition;
                 Debug.Log("Moon Rock instantiated");
                 break;
 
-            case 1700:
+            case 170:
+                audioObject.PlaySound("bossBullet");
                 GetComponent<DanmakuSpawner>().FireRing(playerPosition, transform.position, 6, 3);
 
                 spawnedRock = Instantiate(moonRock, new Vector2(-30, 25), Quaternion.identity);
@@ -46,7 +63,7 @@ public class BossBehaviourP1 : MonoBehaviour
                 break;
 
 
-            case 4500:
+            case 450:
                 int randSide = Random.Range(0, 51);
                 int randHeight = Random.Range(-5, 4);
 
@@ -54,25 +71,28 @@ public class BossBehaviourP1 : MonoBehaviour
                 {
                     Vector2 spawn = new Vector2(30, randHeight);
                     GameObject walls = Instantiate(wallAttack, spawn, Quaternion.identity);
-                } else
+                }
+                else
                 {
                     Vector2 spawn = new Vector2(-30, randHeight);
                     GameObject walls = Instantiate(wallAttack, spawn, Quaternion.identity);
                 }
                 break;
 
-            case 6000:
+            case 600:
+                audioObject.PlaySound("bossBullet");
                 GetComponent<DanmakuSpawner>().FireRing(playerPosition, transform.position, 16, 2);
 
                 spawnedRock = Instantiate(moonRock, new Vector2(-30, 25), Quaternion.identity);
                 spawnedRock.GetComponent<MoonRock>().targetPos = playerPosition;
                 break;
 
-            case 8500:
+            case 850:
+                audioObject.PlaySound("bossBullet");
                 GetComponent<DanmakuSpawner>().RingFlare(playerPosition, transform.position, 15, 2);
                 break;
 
-            case 9500:
+            case 950:
                 timer = 0;
                 break;
             default:
@@ -80,5 +100,44 @@ public class BossBehaviourP1 : MonoBehaviour
         }
 
         timer++;
+    }
+
+    private void Update()
+    {
+        // Update player's position
+        playerPosition = player.transform.position;
+    }
+
+    //JC
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Boss hitbox entered");
+        if(collision.gameObject.tag == "weapon" && invulTimer <= 0)
+        {
+            StartCoroutine(FlashRed());
+            Debug.Log("Boss damaged!");
+            invulTimer = 0.6f;
+            TakeDamage(2);
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        healthbar.gameObject.transform.localScale = new Vector3((healthbarScale / 100) * health, 0.8f, 1);
+
+        if(health <= 20)
+        {
+            loader.SceneTransition();
+        }
+    }
+
+    IEnumerator FlashRed()
+    {
+        cloakSR.color = Color.red;
+        maskSR.color = Color.red;
+        yield return new WaitForSeconds(.2f);
+        cloakSR.color = Color.white;
+        maskSR.color = Color.white;
     }
 }

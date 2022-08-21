@@ -11,10 +11,12 @@ public class PlayerAttack : MonoBehaviour
     public LayerMask whatIsEnemies;
     public Animator playersAnim;
 
+    private AudioManager audioObject;
     private float timeBtwAttack;
     // Start is called before the first frame update
     void Start()
     {
+        audioObject = FindObjectOfType<AudioManager>();
         Debug.Log(playersAnim);
     }
 
@@ -25,6 +27,7 @@ public class PlayerAttack : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.Mouse0))
             {
+                audioObject.PlaySound("swordSwing");
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
                 Debug.Log("Attacking");
                 StartCoroutine(StartAttack());

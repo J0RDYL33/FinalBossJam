@@ -17744,7 +17744,7 @@ PrefabInstance:
     - target: {fileID: 8963612679037921653, guid: ec8e6e278a7d3884682e0cfb48da60dd, type: 3}
       propertyPath: healthbar
       value: 
-      objectReference: {fileID: 1000132010}
+      objectReference: {fileID: 0}
     - target: {fileID: 8963612679037921662, guid: ec8e6e278a7d3884682e0cfb48da60dd, type: 3}
       propertyPath: m_Name
       value: Player
@@ -17752,11 +17752,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: ec8e6e278a7d3884682e0cfb48da60dd, type: 3}
---- !u!1 &1000132010 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 629505114317742928, guid: 3939f328bc007fe4d86d5789423bfed9, type: 3}
-  m_PrefabInstance: {fileID: 629505113604468474}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1041189800
 GameObject:
   m_ObjectHideFlags: 0
@@ -17891,6 +17886,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenShaking: 0
   screenShakeAmount: 20
+  doFollow: 1
 --- !u!1 &1144146822
 GameObject:
   m_ObjectHideFlags: 0

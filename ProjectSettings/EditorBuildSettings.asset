@@ -36,6 +36,9 @@ EditorBuildSettings:
     path: Assets/Scenes/StartRoomPhase3.unity
     guid: 965c26762cb077145b56895847e621ba
   - enabled: 1
+    path: Assets/Scenes/MidRoomPhase3.unity
+    guid: 281dafccaede88645bb025e47075b984
+  - enabled: 1
     path: Assets/Boss/Boss Final Phase.unity
     guid: 4f61146fa5a4dac4392ef6c22e8afbf8
   - enabled: 1

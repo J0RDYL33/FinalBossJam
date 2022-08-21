@@ -23,10 +23,16 @@ public class MultiTargetCam : MonoBehaviour
     private Vector3 velocity;
     private Camera cam;
 
+    //JC
+    private CameraMover jcCam;
+
 
     private void Start()
     {
         cam = GetComponent<Camera>();
+
+        //JC
+        jcCam = FindObjectOfType<CameraMover>();
     }
 
 
@@ -35,8 +41,12 @@ public class MultiTargetCam : MonoBehaviour
         if (targets.Count == 0)
             return;
 
-        Move();
-        Zoom();
+        //JC
+        if (jcCam.screenShaking != true)
+        {
+            Move();
+            Zoom();
+        }
     }
 
     private void Move()

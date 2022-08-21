@@ -18,6 +18,7 @@ public class CultistController : MonoBehaviour
     private float invulTime = 0.5f;
     private Rigidbody2D myRB;
     private BoxCollider2D myCol;
+    private AudioManager audioObject;
 
     private Vector2 playerPosition;
     private GameObject playerObject;
@@ -32,6 +33,7 @@ public class CultistController : MonoBehaviour
         mySR = GetComponent<SpriteRenderer>();
         myRB = GetComponent<Rigidbody2D>();
         myCol = GetComponent<BoxCollider2D>();
+        audioObject = FindObjectOfType<AudioManager>();
 
         playerObject = GameObject.FindGameObjectWithTag("Player");
     }
@@ -75,6 +77,7 @@ public class CultistController : MonoBehaviour
 
     public void SpawnBullet()
     {
+        audioObject.PlaySound("cultistFlame");
         spawnBullet = false;
         Debug.Log("Bullet Spawned!");
         //theCam.StartScreenShake();

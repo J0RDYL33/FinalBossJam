@@ -26,6 +26,11 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer mySR;
     private BoxCollider2D myCol;
     private CameraMover theCam;
+    private float healthbarScale = 0.97f;
+    private AudioManager audioObject;
+    private bool walkSounds = true;
+    private bool running = false;
+    private bool walkingSound;
 
     [SerializeField] private TrailRenderer tr;
 
@@ -39,6 +44,8 @@ public class PlayerMovement : MonoBehaviour
         myCol = GetComponent<BoxCollider2D>();
         theCam = FindObjectOfType<CameraMover>();
         tr.material.color = new Color(0.8588236f, 0.5411765f, 0.7098039f);
+        audioObject = FindObjectOfType<AudioManager>();
+        StartCoroutine(PlayWalkSounds());
     }
 
     // Update is called once per frame
@@ -60,6 +67,11 @@ public class PlayerMovement : MonoBehaviour
         movement *= Time.deltaTime;
 
         transform.Translate(movement);
+
+        if(grounded == true && running == true)
+        {
+            StartCoroutine(PlayWalkSounds());
+        }
     }
 
     private void Update()
@@ -84,11 +96,20 @@ public class PlayerMovement : MonoBehaviour
 
         //Handle running animation
         if (Input.GetKey(KeyCode.A))
+        {
             myAnim.SetBool("Running", true);
+            running = true;
+        }
         else if (Input.GetKey(KeyCode.D))
+        {
             myAnim.SetBool("Running", true);
+            running = true;
+        }
         else if (Input.GetKey(KeyCode.A) == false || Input.GetKey(KeyCode.D) == false)
+        {
             myAnim.SetBool("Running", false);
+            running = false;
+        }
 
         if (Input.GetKeyDown(KeyCode.Space) && (grounded == true || doubleJump == true))
         {
@@ -99,9 +120,15 @@ public class PlayerMovement : MonoBehaviour
             myRb.velocity = new Vector2(myRb.velocity.x, jumpAmount);
 
             if (grounded == true)
+            {
+                audioObject.PlaySound("jump");
                 grounded = false;
+            }
             else if (doubleJump == true)
+            {
+                audioObject.PlaySound("doubleJump");
                 doubleJump = false;
+            }
         }
 
         if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.S)) && canDash)
@@ -122,9 +149,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (invulTimer <= 0)
         {
+            audioObject.PlaySound("playerDamage");
+            invulTimer = 0.5f;
+            //Do new health
             theCam.StartScreenShake();
             health--;
-            healthbar.transform.localScale = new Vector3(health, 1, 1);
+            healthbar.transform.localScale = new Vector3((healthbarScale / 4) * health, .8f, 1);
             StartCoroutine(FlashRed());
             if (health <= 0)
             {
@@ -153,6 +183,7 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator Dash()
     {
         myAnim.SetBool("Dashing", true);
+        audioObject.PlaySound("dash");
         Debug.Log("Dashing");
         canDash = false;
         isDashing = true;
@@ -177,6 +208,18 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         myAnim.SetBool("Dashing", false);
         tr.material.color = new Color(0.8588236f, 0.5411765f, 0.7098039f);
+    }
+
+    private IEnumerator PlayWalkSounds()
+    {
+        if (walkingSound == false)
+        {
+            walkingSound = true;
+            int randInt = Random.Range(1, 7);
+            audioObject.PlaySound("foot" + randInt.ToString());
+            yield return new WaitForSeconds(0.2f);
+            walkingSound = false;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -9,17 +9,24 @@ public class LevelLoader : MonoBehaviour
     public Animator transition;
     public bool startWhite;
     public bool endWhite;
+    public string musicToPlay;
+
+    private MusicManager musicObject;
 
     [SerializeField] private Image fadeImage;
 
     // Start is called before the first frame update
     void Start()
     {
+        musicObject = FindObjectOfType<MusicManager>();
         if(startWhite == true)
         {
             fadeImage.color = Color.white;
             StartCoroutine(SetToBlack());
         }
+
+        if (musicToPlay != "")
+            musicObject.PlaySound(musicToPlay);
     }
 
     // Update is called once per frame
@@ -50,10 +57,14 @@ public class LevelLoader : MonoBehaviour
             fadeImage.color = Color.white;
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(1);
-        if(levelIndex != 15)
+        Debug.Log(levelIndex);
+        if (levelIndex != 16)
+        {
             SceneManager.LoadScene(levelIndex);
+        }
         else
         {
+            Destroy(musicObject.gameObject);
             SceneManager.LoadScene(0);
         }
     }

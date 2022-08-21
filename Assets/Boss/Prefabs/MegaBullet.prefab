@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3063258074260287959}
   - component: {fileID: 2599107625914453492}
   - component: {fileID: -6028889959810434866}
+  - component: {fileID: 5712094768603220188}
   m_Layer: 0
   m_Name: MegaBullet
   m_TagString: enemy
@@ -72,9 +73,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingLayerID: -212391295
+  m_SortingLayer: 3
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: b4e391ac1e9b3b141b1808f9d74202a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -116,3 +117,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   deathTime: 5
+--- !u!95 &5712094768603220188
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5387058764533184172}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4ee0688cc6bb2d4408c911dd597da314, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
