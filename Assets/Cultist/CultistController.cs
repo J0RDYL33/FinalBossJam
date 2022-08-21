@@ -18,6 +18,11 @@ public class CultistController : MonoBehaviour
     private float invulTime = 0.5f;
     private Rigidbody2D myRB;
     private BoxCollider2D myCol;
+
+    private Vector2 playerPosition;
+    private GameObject playerObject;
+    public GameObject bullet;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,11 +32,15 @@ public class CultistController : MonoBehaviour
         mySR = GetComponent<SpriteRenderer>();
         myRB = GetComponent<Rigidbody2D>();
         myCol = GetComponent<BoxCollider2D>();
+
+        playerObject = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
+        playerPosition = playerObject.transform.position;
+
         if (transform.position.x > player.transform.position.x)
         {
             facingRight = false;
@@ -69,6 +78,9 @@ public class CultistController : MonoBehaviour
         spawnBullet = false;
         Debug.Log("Bullet Spawned!");
         //theCam.StartScreenShake();
+
+        GameObject bul = Instantiate(bullet, transform.position, Quaternion.identity);
+        bullet.GetComponent<cultBullet>().target = playerPosition;
     }
 
     public void TakeDamage()
