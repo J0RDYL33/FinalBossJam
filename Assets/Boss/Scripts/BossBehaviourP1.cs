@@ -48,7 +48,7 @@ public class BossBehaviourP1 : MonoBehaviour
 
             case 4500:
                 int randSide = Random.Range(0, 51);
-                int randHeight = Random.Range(-5, 6);
+                int randHeight = Random.Range(-5, 4);
 
                 if (randSide <= 25)
                 {
