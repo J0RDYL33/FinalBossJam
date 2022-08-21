@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
         mySR = GetComponent<SpriteRenderer>();
         myCol = GetComponent<BoxCollider2D>();
         theCam = FindObjectOfType<CameraMover>();
+        tr.material.color = new Color(0.8588236f, 0.5411765f, 0.7098039f);
     }
 
     // Update is called once per frame
@@ -89,8 +90,9 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetKey(KeyCode.A) == false || Input.GetKey(KeyCode.D) == false)
             myAnim.SetBool("Running", false);
 
-            if (Input.GetKeyDown(KeyCode.Space) && (grounded == true || doubleJump == true))
+        if (Input.GetKeyDown(KeyCode.Space) && (grounded == true || doubleJump == true))
         {
+            StartCoroutine(PauseJumpForDouble());
             //myRb.AddForce(Vector2.up * jumpAmount, ForceMode2D.Impulse);
             //float jumpForce = Mathf.Sqrt(jumpAmount * -2 * (Physics2D.gravity.y * myRb.gravityScale));
             //myRb.AddForce(new Vector2(0, jumpForce * myRb.gravityScale), ForceMode2D.Impulse);
@@ -107,6 +109,13 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Dash call");
             StartCoroutine(Dash());
         }
+    }
+
+    IEnumerator PauseJumpForDouble()
+    {
+        myAnim.SetBool("Jumping", false);
+        yield return null;
+        myAnim.SetBool("Jumping", true);
     }
 
     public void TakeDamage()
@@ -143,6 +152,7 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator Dash()
     {
+        myAnim.SetBool("Dashing", true);
         Debug.Log("Dashing");
         canDash = false;
         isDashing = true;
@@ -165,10 +175,19 @@ public class PlayerMovement : MonoBehaviour
     {
         tr.material.color = new Color(1f, 0.5998304f, 0.3160377f);
         yield return new WaitForSeconds(0.5f);
+        myAnim.SetBool("Dashing", false);
         tr.material.color = new Color(0.8588236f, 0.5411765f, 0.7098039f);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "enemy")
+        {
+            TakeDamage();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "enemy")
         {

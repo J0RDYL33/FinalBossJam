@@ -258,3 +258,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transition: {fileID: 787658876950932095}
+  startWhite: 0
+  endWhite: 0
+  fadeImage: {fileID: 787658877017784565}

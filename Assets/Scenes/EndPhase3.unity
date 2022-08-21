@@ -241,6 +241,7 @@ GameObject:
   - component: {fileID: 271719686}
   - component: {fileID: 271719685}
   - component: {fileID: 271719688}
+  - component: {fileID: 271719689}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -347,6 +348,18 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &271719689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 271719684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95678fc5100026c45b74cc6da5404d72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &358694042
 GameObject:
   m_ObjectHideFlags: 0
@@ -103974,6 +103987,10 @@ PrefabInstance:
     - target: {fileID: 787658877192498677, guid: 776fa4cb99df52347bd9a6a06f671b19, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197408995197931131, guid: 776fa4cb99df52347bd9a6a06f671b19, type: 3}
+      propertyPath: endWhite
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

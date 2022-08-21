@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2487fb6b6dff5c448ac60c9d337acf72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateAmount: 0.1
+  rotateAmount: 0
 --- !u!156049354 &126417737
 Grid:
   m_ObjectHideFlags: 0
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2487fb6b6dff5c448ac60c9d337acf72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateAmount: 0.6
+  rotateAmount: -0.06
 --- !u!4 &228833070
 Transform:
   m_ObjectHideFlags: 0
@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2487fb6b6dff5c448ac60c9d337acf72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateAmount: 0.4
+  rotateAmount: -0.04
 --- !u!4 &358694044
 Transform:
   m_ObjectHideFlags: 0
@@ -103810,7 +103810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2487fb6b6dff5c448ac60c9d337acf72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateAmount: 0.8
+  rotateAmount: -0.08
 --- !u!4 &485909668
 Transform:
   m_ObjectHideFlags: 0
@@ -104091,7 +104091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2487fb6b6dff5c448ac60c9d337acf72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateAmount: 0.05
+  rotateAmount: -0.002
 --- !u!4 &713066286
 Transform:
   m_ObjectHideFlags: 0
@@ -104221,7 +104221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2487fb6b6dff5c448ac60c9d337acf72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateAmount: 0.25
+  rotateAmount: -0.025
 --- !u!4 &1082746945
 Transform:
   m_ObjectHideFlags: 0
@@ -149509,7 +149509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2487fb6b6dff5c448ac60c9d337acf72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateAmount: 0.35
+  rotateAmount: -0.035
 --- !u!4 &1114529789
 Transform:
   m_ObjectHideFlags: 0
@@ -149874,7 +149874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2487fb6b6dff5c448ac60c9d337acf72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateAmount: 0.15
+  rotateAmount: -0.01
 --- !u!4 &1563883454
 Transform:
   m_ObjectHideFlags: 0
@@ -150343,7 +150343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2487fb6b6dff5c448ac60c9d337acf72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateAmount: 0.56
+  rotateAmount: -0.056
 --- !u!4 &2146512371
 Transform:
   m_ObjectHideFlags: 0
