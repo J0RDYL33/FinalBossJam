@@ -849,9 +849,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: 310648339
+  m_SortingLayer: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 06238608c46bc7c40abcf9b5e11d2d9e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2102,7 +2102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6850021521606653573, guid: 21fb061ce93a5364d8904fda40552b24, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.898128
+      value: -6.98
       objectReference: {fileID: 0}
     - target: {fileID: 6850021521606653573, guid: 21fb061ce93a5364d8904fda40552b24, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2582,7 +2582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1609980072745305405, guid: 027be06542b78bb4094e694c4a5b1da8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -21.4
+      value: -3.4
       objectReference: {fileID: 0}
     - target: {fileID: 1609980072745305405, guid: 027be06542b78bb4094e694c4a5b1da8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2620,13 +2620,17 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5309770753527044823, guid: 027be06542b78bb4094e694c4a5b1da8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 53251419e6fc91a499f331a9ba1649f3, type: 3}
     - target: {fileID: 7870131768906566595, guid: 027be06542b78bb4094e694c4a5b1da8, type: 3}
       propertyPath: m_Offset.x
       value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7870131768906566595, guid: 027be06542b78bb4094e694c4a5b1da8, type: 3}
       propertyPath: m_Offset.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -2829,7 +2833,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6850021521606653573, guid: d18ae2d7d71836747b7dc65c9003d50f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.005773
+      value: -7.087645
       objectReference: {fileID: 0}
     - target: {fileID: 6850021521606653573, guid: d18ae2d7d71836747b7dc65c9003d50f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3097,6 +3101,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2635423675749677934, guid: 8353a8f7095f5224badf78acdbbc6074, type: 3}
+      propertyPath: m_text
+      value: Tytoriel, God Emperor of Clocks and Calendar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2635423675749677934, guid: 8353a8f7095f5224badf78acdbbc6074, type: 3}
+      propertyPath: m_margin.z
+      value: -285.055
+      objectReference: {fileID: 0}
+    - target: {fileID: 2635423675749677934, guid: 8353a8f7095f5224badf78acdbbc6074, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 2635423675749677934, guid: 8353a8f7095f5224badf78acdbbc6074, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 8353a8f7095f5224badf78acdbbc6074, type: 3}
@@ -3344,7 +3364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1609980072745305405, guid: 027be06542b78bb4094e694c4a5b1da8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -21.4
+      value: -3.4
       objectReference: {fileID: 0}
     - target: {fileID: 1609980072745305405, guid: 027be06542b78bb4094e694c4a5b1da8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3382,13 +3402,17 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5309770753527044823, guid: 027be06542b78bb4094e694c4a5b1da8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 53251419e6fc91a499f331a9ba1649f3, type: 3}
     - target: {fileID: 7870131768906566595, guid: 027be06542b78bb4094e694c4a5b1da8, type: 3}
       propertyPath: m_Offset.x
       value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7870131768906566595, guid: 027be06542b78bb4094e694c4a5b1da8, type: 3}
       propertyPath: m_Offset.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

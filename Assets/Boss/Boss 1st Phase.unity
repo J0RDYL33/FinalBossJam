@@ -2932,6 +2932,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2635423675749677934, guid: 8353a8f7095f5224badf78acdbbc6074, type: 3}
+      propertyPath: m_text
+      value: Withered Marionette of an Old God
+      objectReference: {fileID: 0}
+    - target: {fileID: 2635423675749677934, guid: 8353a8f7095f5224badf78acdbbc6074, type: 3}
+      propertyPath: m_margin.z
+      value: -194.02994
+      objectReference: {fileID: 0}
+    - target: {fileID: 2635423675749677934, guid: 8353a8f7095f5224badf78acdbbc6074, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 2635423675749677934, guid: 8353a8f7095f5224badf78acdbbc6074, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 8353a8f7095f5224badf78acdbbc6074, type: 3}
