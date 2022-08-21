@@ -21,6 +21,11 @@ public class AudioManager : MonoBehaviour
         walkingSrc.volume = audioVolume / 4;
     }
 
+    public void SetVolume(float vol)
+    {
+        audioVolume = vol;
+    }
+
     public void PlaySound(string clip)
     {
         switch (clip)

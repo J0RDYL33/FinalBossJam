@@ -20,6 +20,11 @@ public class MusicManager : MonoBehaviour
         audioSrc.volume = audioVolume;
     }
 
+    public void SetVolume(float vol)
+    {
+        audioVolume = vol;
+    }
+
     public void PlaySound(string clip)
     {
         switch (clip)
