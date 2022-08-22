@@ -117,7 +117,7 @@ public class BossBehaviourP1 : MonoBehaviour
             StartCoroutine(FlashRed());
             Debug.Log("Boss damaged!");
             invulTimer = 0.6f;
-            TakeDamage(2);
+            TakeDamage(4);
         }
     }
 

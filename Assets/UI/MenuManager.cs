@@ -16,6 +16,7 @@ public class MenuManager : MonoBehaviour
     public GameObject settingsMenu;
     public GameObject creditsMenu;
     public GameObject controlsMenu;
+    public Image background;
 
     private void Start()
     {
@@ -28,5 +29,15 @@ public class MenuManager : MonoBehaviour
     {
         Debug.Log("Quit button pressed");
         Application.Quit();
+    }
+
+    public void SetBackgroundGrey()
+    {
+        background.color = Color.grey;
+    }
+
+    public void SetBackgroundWhite()
+    {
+        background.color = Color.white;
     }
 }

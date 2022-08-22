@@ -26,7 +26,7 @@ public class HandHitter : MonoBehaviour
         {
             StartCoroutine(FlashRed());
             invulTimer = 0.6f;
-            boss.TakeDamage(1);
+            boss.TakeDamage(2);
         }
     }
 
